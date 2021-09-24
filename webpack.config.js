@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   // 시작하는 js파일
@@ -14,7 +15,7 @@ module.exports = {
     // 번들할 파일 경로
     path: path.resolve(__dirname, "dist"),
   },
-
+  mode: "none",
   module: {
     rules: [
       {
@@ -22,15 +23,7 @@ module.exports = {
         test: /\.s[ac]ss$/i,
 
         // 뒤에서 부터 적용
-        use: [
-          // Creates `style` nodes from JS strings
-          MiniCssExtractPlugin.loader,
-          // "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.m?js$/,
@@ -63,6 +56,12 @@ module.exports = {
     // 기존 번들된 파일을 지우고 새로운 파일로 덮는다.
     // clean-wepback-plugin
     new CleanWebpackPlugin(),
+
+    // static폴더 설정
+    // copy-webpack-plugin
+    new CopyPlugin({
+      patterns: [{ from: "static" }],
+    }),
   ],
 
   // 개발 서버 설정

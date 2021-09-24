@@ -35,6 +35,7 @@
     "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "sweetalert": "^2.1.2"
   }
 }

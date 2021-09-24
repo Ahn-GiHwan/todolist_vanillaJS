@@ -1,3 +1,91 @@
-body {
+$w: #fff;
+$g: #6e6e6e;
+$mainBS: 0px 0px 27px 3px $w;
+$listBS: 0px 0px 8px 0px $g;
+
+@mixin flexSetting($fd: row, $jc: center, $ai: center) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin absoluteSetting($t: auto, $r: auto, $b: auto, $l: auto) {
+  position: absolute;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+@mixin paddingSetting($p: 10px) {
+  padding: $p;
+}
+
+.container {
+  @include flexSetting();
+  @include absoluteSetting(0, 0, 0, 0);
   background-color: skyblue;
+}
+
+main {
+  @include flexSetting($fd: column, $jc: space-around);
+  width: 60%;
+  height: 80%;
+  @include paddingSetting(20px);
+  border-radius: 10px;
+  box-shadow: $mainBS;
+  border: 1px solid $w;
+}
+
+header {
+  flex: 3;
+  width: 100%;
+  @include flexSetting;
+  .title {
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    font-size: 40px;
+  }
+}
+
+article {
+  flex: 7;
+  width: 100%;
+  @include flexSetting($fd: column, $jc: flex-start);
+  .top {
+    @include paddingSetting($p: 0 0 20px);
+    input {
+      border: none;
+      background-color: skyblue;
+      border-bottom: 3px solid $g;
+      font-size: 15px;
+      outline: none;
+    }
+    button {
+      border: none;
+      border-radius: 10px;
+      @include paddingSetting(5px 15px);
+    }
+  }
+  .bottom {
+    @include flexSetting(row, space-around, center);
+    width: 100%;
+    height: 100%;
+    .do {
+      width: 45%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: $listBS;
+      overflow: scroll;
+    }
+    .done {
+      width: 45%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: $listBS;
+      overflow: scroll;
+    }
+  }
 }

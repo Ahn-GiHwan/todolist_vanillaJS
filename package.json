@@ -1,0 +1,25 @@
+{
+  "name": "todolist_vanillajs",
+  "version": "1.0.0",
+  "description": "vanillaJS를 이용하여 todolist만들기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahn-GiHwan/todolist_vanillaJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahn-GiHwan/todolist_vanillaJS/issues"
+  },
+  "homepage": "https://github.com/Ahn-GiHwan/todolist_vanillaJS#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.2",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
+  }
+}

@@ -155,7 +155,7 @@ header {
   background-color: rgb(0.1, 0.1, 0.1, 0.5);
   main {
     position: relative;
-    width: 30%;
+    width: 50%;
     height: 30%;
     background-color: $w;
 
@@ -165,6 +165,7 @@ header {
     }
 
     .modifyInput {
+      width: 100%;
       @include inputSetting(20px);
       border-bottom: 3px solid black;
     }

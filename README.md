@@ -65,6 +65,13 @@
 <br>
 <hr>
 
+## TypeScript version
+
+> https://github.com/Ahn-GiHwan/todolist_ts
+
+<br>
+<hr>
+
 ## v1.1.0
 
 모달창의 input 레이아웃 오류 수정 <br>

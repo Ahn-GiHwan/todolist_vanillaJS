@@ -30,7 +30,13 @@ $bg: skyblue;
   border: none;
   border-radius: $br;
   cursor: pointer;
+  margin: 0;
   @content;
+}
+
+@font-face {
+  src: url("./static/KakaoOTFRegular.otf");
+  font-family: "kakao";
 }
 
 * {
@@ -39,10 +45,11 @@ $bg: skyblue;
   user-select: none;
 }
 
-@font-face {
-  src: url("./static/KakaoOTFRegular.otf");
-
+body {
   font-family: "kakao";
+  background-color: $bg;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .container {
@@ -84,9 +91,9 @@ header {
     @include inputSetting(15px, $bg);
   }
   .submit {
-    @include btn {
-      padding: 5px 10px;
-    }
+    @include btn;
+    padding: 5px 10px;
+    background-color: $w;
   }
 }
 
@@ -130,21 +137,18 @@ header {
     }
 
     .check {
-      @include btn(5px 0 0 5px) {
-        background-color: orchid;
-      }
+      @include btn(5px 0 0 5px);
+      background-color: orchid;
     }
 
     .delete {
-      @include btn(0 5px 5px 0) {
-        background-color: red;
-      }
+      @include btn(0 5px 5px 0);
+      background-color: red;
     }
 
     .edit {
-      @include btn(0) {
-        background-color: green;
-      }
+      @include btn(0);
+      background-color: green;
     }
   }
 }
@@ -155,7 +159,7 @@ header {
   background-color: rgb(0.1, 0.1, 0.1, 0.5);
   main {
     position: relative;
-    width: 30%;
+    width: 50%;
     height: 30%;
     background-color: $w;
 
@@ -165,26 +169,25 @@ header {
     }
 
     .modifyInput {
+      width: 100%;
       @include inputSetting(20px);
       border-bottom: 3px solid black;
     }
 
     .exit {
       @include absoluteSetting($t: 0, $r: 0);
-      @include btn(0 10px 0 0) {
-        background-color: $bg;
-        color: white;
-        padding: 5px 10px;
-      }
+      @include btn(0 10px 0 0);
+      background-color: $bg;
+      color: white;
+      padding: 5px 10px;
     }
 
     .modifySubmit {
-      @include btn(3px) {
-        width: 100%;
-        padding: 10px;
-        color: $w;
-        background-color: $bg;
-      }
+      @include btn(3px);
+      width: 100%;
+      padding: 10px;
+      color: $w;
+      background-color: $bg;
     }
   }
 }

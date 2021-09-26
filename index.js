@@ -37,9 +37,18 @@ const addDo = () => {
 
 const inputValidation = (inputEl) => {
   if (inputEl.value === "") return false;
-  // if (inputEl.value.match(pattern)) return true;
   if (inputEl.value.replace(/ /g, "") === "") return false;
   return true;
+};
+
+const todoModify = () => {
+  const dos = document.querySelectorAll(".do");
+
+  dos.forEach(
+    (item) =>
+      item.id === String(selectId) &&
+      (item.children[0].children[0].innerHTML = modifyInput.value)
+  );
 };
 
 window.addEventListener("click", (e) => {
@@ -85,8 +94,7 @@ window.addEventListener("click", (e) => {
 
   if (elClassName.includes("modifySubmit")) {
     if (inputValidation(modifyInput)) {
-      const dos = document.querySelectorAll(".do");
-      dos[selectId].children[0].children[0].innerHTML = modifyInput.value;
+      todoModify();
       modal.classList.remove("on");
     } else {
       swal("내용을 입력해 주세요!");
@@ -102,8 +110,7 @@ window.addEventListener("keypress", (e) => {
   if (e.key.includes("Enter")) {
     if (modal.className.includes("on")) {
       if (inputValidation(modifyInput)) {
-        const dos = document.querySelectorAll(".do");
-        dos[selectId].children[0].children[0].innerHTML = modifyInput.value;
+        todoModify();
         modal.classList.remove("on");
       } else {
         swal("내용을 입력해 주세요!");

@@ -15,7 +15,6 @@ module.exports = {
     // 번들할 파일 경로
     path: path.resolve(__dirname, "dist"),
   },
-  mode: "none",
   module: {
     rules: [
       {

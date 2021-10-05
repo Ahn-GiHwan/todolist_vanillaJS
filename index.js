@@ -18,7 +18,13 @@ const inputReset = (inputEl) => {
 };
 
 const addDo = () => {
-  doList.innerHTML += `
+  doList.children[0].nodeName === "DIV"
+    ? (doList.innerHTML = doTemplate())
+    : (doList.innerHTML += doTemplate());
+};
+
+const doTemplate = () => {
+  return `
     <li class="do" id=${idx++}>
       <div class="left">
         <span class="name">${input.value.trim()}</span>
@@ -35,9 +41,17 @@ const addDo = () => {
   `;
 };
 
+const emptyDoListContent = () => {
+  doList.innerHTML = `
+    <div class="empty">
+      <span>할 일을 적어주세요<span>
+    </div>
+  `;
+};
+
 const inputValidation = (inputEl) => {
   if (inputEl.value === "") return false;
-  if (inputEl.value.replace(/ /g, "") === "") return false;
+  if (inputEl.value.match(/\s/g)) return false;
   return true;
 };
 
@@ -77,6 +91,7 @@ window.addEventListener("click", (e) => {
           icon: "success",
         });
       }
+      doList.children.length === 0 && emptyDoListContent();
     });
   }
 
@@ -97,7 +112,7 @@ window.addEventListener("click", (e) => {
       todoModify();
       modal.classList.remove("on");
     } else {
-      swal("내용을 입력해 주세요!");
+      swal("빈 문자, 공백(space)는 안됩니다!");
     }
   }
 
@@ -107,15 +122,10 @@ window.addEventListener("click", (e) => {
 });
 
 window.addEventListener("keypress", (e) => {
-  if (e.key.includes("Enter")) {
-    if (modal.className.includes("on")) {
-      if (inputValidation(modifyInput)) {
-        todoModify();
-        modal.classList.remove("on");
-      } else {
-        swal("내용을 입력해 주세요!");
-      }
-    } else {
+  const focusClassName = document.activeElement.className;
+
+  if (focusClassName === "inputText") {
+    if (e.key.includes("Enter")) {
       if (inputValidation(input)) {
         addDo();
         inputReset(input);
@@ -123,9 +133,37 @@ window.addEventListener("keypress", (e) => {
         swal("빈 문자, 공백(space)는 안됩니다!");
       }
     }
+  } else if (focusClassName === "modifyInput") {
+    if (e.key.includes("Enter")) {
+      if (inputValidation(modifyInput)) {
+        todoModify();
+        modal.classList.remove("on");
+      } else {
+        swal("빈 문자, 공백(space)는 안됩니다!");
+      }
+    }
   }
+
+  // if (e.key.includes("Enter")) {
+  //   if (modal.className.includes("on")) {
+  //     if (inputValidation(modifyInput)) {
+  //       todoModify();
+  //       modal.classList.remove("on");
+  //     } else {
+  //       swal("내용을 입력해 주세요!");
+  //     }
+  //   } else {
+  //     if (inputValidation(input)) {
+  //       addDo();
+  //       inputReset(input);
+  //     } else {
+  //       swal("빈 문자, 공백(space)는 안됩니다!");
+  //     }
+  //   }
+  // }
 });
 
 window.addEventListener("DOMContentLoaded", () => {
   input.focus();
+  emptyDoListContent();
 });

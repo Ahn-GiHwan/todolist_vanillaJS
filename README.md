@@ -65,9 +65,13 @@
 <br>
 <hr>
 
-## TypeScript version
+## TypeScript Version
 
 > https://github.com/Ahn-GiHwan/todolist_ts
+
+## React Version
+
+> https://github.com/Ahn-GiHwan/todolist_react
 
 <br>
 <hr>

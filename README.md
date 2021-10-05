@@ -74,6 +74,11 @@
 
 ## v1.1.0
 
-모달창의 input 레이아웃 오류 수정 <br>
-todo 수정하기 오류 수정 <br>
-safari 호환성(font, user-select) 문제 수정 <br>
+- 모달창의 input 레이아웃 오류 수정
+- todo 수정하기 오류 수정
+- safari 호환성(font, user-select) 문제 수정
+
+## v1.2.0
+
+- input에 focus가 false일 때 enter 클릭 시 keypress 이벤트 실행 됨 <br>-> input에 focus가 true여야만 keypress 이벤트 적용
+- list에 아무것도 없을 경우 '할 일을 적어주세요' 문구 출력

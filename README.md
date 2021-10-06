@@ -65,9 +65,13 @@
 <br>
 <hr>
 
-## TypeScript version
+## TypeScript Version
 
 > https://github.com/Ahn-GiHwan/todolist_ts
+
+## React Version
+
+> https://github.com/Ahn-GiHwan/todolist_react
 
 <br>
 <hr>
@@ -82,3 +86,7 @@
 
 - input에 focus가 false일 때 enter 클릭 시 keypress 이벤트 실행 됨 <br>-> input에 focus가 true여야만 keypress 이벤트 적용
 - list에 아무것도 없을 경우 '할 일을 적어주세요' 문구 출력
+
+## v1.2.1
+
+- 수정 시 호출되는 모달창의 input placeholder값을 수정 할 todo값이 나오도록 수정

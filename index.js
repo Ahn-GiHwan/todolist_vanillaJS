@@ -99,6 +99,8 @@ window.addEventListener("click", (e) => {
     modal.classList.add("on");
     modifyInput.value =
       targetEl.closest("li").children[0].children[0].innerHTML;
+    modifyInput.placeholder =
+      targetEl.closest("li").children[0].children[0].innerHTML;
     selectId = targetEl.closest("li").id;
     modifyInput.focus();
   }
@@ -143,24 +145,6 @@ window.addEventListener("keypress", (e) => {
       }
     }
   }
-
-  // if (e.key.includes("Enter")) {
-  //   if (modal.className.includes("on")) {
-  //     if (inputValidation(modifyInput)) {
-  //       todoModify();
-  //       modal.classList.remove("on");
-  //     } else {
-  //       swal("내용을 입력해 주세요!");
-  //     }
-  //   } else {
-  //     if (inputValidation(input)) {
-  //       addDo();
-  //       inputReset(input);
-  //     } else {
-  //       swal("빈 문자, 공백(space)는 안됩니다!");
-  //     }
-  //   }
-  // }
 });
 
 window.addEventListener("DOMContentLoaded", () => {
